@@ -23,7 +23,7 @@ export const getUsersById = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    const { name, email, password, confirmPassword } = req.body;
+    const { name, email, password, role, confirmPassword } = req.body;
     if (password !== confirmPassword) {
       return res.status(400).json({ message: "Passwords do not match" });
     }
@@ -32,6 +32,7 @@ export const createUser = async (req, res) => {
     await Users.create({
       name,
       email,
+      role,
       password: hashPassword,
     });
     res.json({ msg: "User created successfully" });
@@ -50,15 +51,16 @@ export const loginUser = async (req, res) => {
     }
     const userId = user[0].id;
     const name = user[0].name;
+    const role = user[0].role;
     const mail = user[0].email;
 
     const accessToken = jwt.sign(
-      { userId, name, mail },
+      { userId, name, role, mail },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "5d" }
     );
     const refreshToken = jwt.sign(
-      { userId, name, mail },
+      { userId, name, role, mail },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "7d" }
     );
