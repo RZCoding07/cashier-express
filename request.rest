@@ -31,8 +31,8 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Aisyah",
-    "email": "ais@gmail.com",
+    "name": "Rizky",
+    "email": "rizky@gmail.com",
     "password": "123456",
     "confirmPassword" : "123456"
 }

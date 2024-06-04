@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import router from './routes/index.js';
+import $routes from './routes/index.js';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
@@ -17,7 +17,7 @@ app.use(express.json());  // Parse JSON bodies
 app.use(express.urlencoded({ extended: true }));  // Parse URL-encoded bodies
 app.use(cookieParser());  // Parse Cookie header and populate req.cookies
 
-app.use(router);  // Routes middleware
+app.use($routes);  // Routes middleware
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');

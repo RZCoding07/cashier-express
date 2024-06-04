@@ -4,6 +4,7 @@ import {
   getUsers,
   getUsersById,
   createUser,
+  editUser,
   loginUser,
   resetPassword,
   deleteUser,
@@ -12,14 +13,15 @@ import {
 import { loginFilter } from "../filters/LoginFilter.js";
 
 
-const router = express.Router();
+const $routes = express.Router();
 
-router.get("/users", loginFilter, getUsers);
-router.get("/users/:id", loginFilter, getUsersById);
-router.delete("/users/:id", loginFilter, deleteUser);
-router.post("/users", createUser);
-router.post("/login", loginUser);
-router.post("/resetPassword/:id", loginFilter, resetPassword);
-router.delete("/logout/:id",loginFilter, logout);
+$routes.get("/users", loginFilter, getUsers);
+$routes.get("/users/:id", loginFilter, getUsersById);
+$routes.delete("/users/:id", loginFilter, deleteUser);
+$routes.put("/users/:id", loginFilter, editUser);
+$routes.post("/users", createUser);
+$routes.post("/login", loginUser);
+$routes.post("/resetPassword/:id", loginFilter, resetPassword);
+$routes.delete("/logout/:id",loginFilter, logout);
 
-export default router;
+export default $routes;

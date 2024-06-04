@@ -27,6 +27,14 @@ export const createUser = async (req, res) => {
     if (password !== confirmPassword) {
       return res.status(400).json({ message: "Passwords do not match" });
     }
+
+    const user = await Users.findAll({ where: { email } });
+
+    if (user.length > 0) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+    
+
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = bcrypt.hashSync(password, salt);
     await Users.create({
@@ -124,6 +132,38 @@ export const deleteUser = async (req, res) => {
   try {
     await Users.destroy({ where: { id: req.params.id } });
     res.json({ msg: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const editUser = async (req, res) => {
+  try {
+    const { name, email, role, password } = req.body;
+
+    if (password === undefined || password === null || password === "") {
+      await Users.update(
+        { name, email, role },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+      return res.json({ msg: "User updated successfully" });
+    } else {
+      const salt = bcrypt.genSaltSync(10);
+      const hashPassword = bcrypt.hashSync(password, salt);
+      await Users.update(
+        { name, email, role, password: hashPassword },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+      res.json({ msg: "User updated successfully" });
+    }
   } catch (error) {
     console.error(error);
   }
