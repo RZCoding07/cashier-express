@@ -150,7 +150,7 @@ export const editUser = async (req, res) => {
           },
         }
       );
-      return res.json({ msg: "User updated sukses" });
+      return res.json({ msg: "User updated successfully" });
     } else {
       const salt = bcrypt.genSaltSync(10);
       const hashPassword = bcrypt.hashSync(password, salt);

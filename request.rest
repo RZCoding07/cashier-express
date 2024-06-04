@@ -7,7 +7,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
 
 
 ###
-PUT http://localhost:5000/users/10
+PUT http://localhost:5000/users/13
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJuYW1lIjoiUml6a3kiLCJtYWlsIjoicml6a3lAZ21haWwuY29tIiwiaWF0IjoxNzE3NTE0MzI5LCJleHAiOjE3MTc5NDYzMjl9.77dwMj8KeNZIlKPvGyDCNZmjUlVSbv30xdVy178y5kM
 
 Content-Type: application/json
@@ -15,6 +15,7 @@ Content-Type: application/json
     "name": "Dewa",
     "email": "mrizky@gmail.com",
     "role": "employee",
+    "password": "",
 }
 
 
