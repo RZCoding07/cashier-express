@@ -7,17 +7,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hb
 
 
 ###
-GET http://localhost:5000/smartphones/oppo
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJBaXN5YWgiLCJtYWlsIjoiYWlzQGdtYWlsLmNvbSIsImlhdCI6MTcxNjgxODg5NSwiZXhwIjoxNzE2ODE5Nzk1fQ.qFs1ae-XF5CEzbC4taJFGpJ7f4w3SouQxKEIegFYcvo
+PUT http://localhost:5000/users/10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJuYW1lIjoiUml6a3kiLCJtYWlsIjoicml6a3lAZ21haWwuY29tIiwiaWF0IjoxNzE3NTE0MzI5LCJleHAiOjE3MTc5NDYzMjl9.77dwMj8KeNZIlKPvGyDCNZmjUlVSbv30xdVy178y5kM
+
+Content-Type: application/json
+{
+    "name": "Dewa",
+    "email": "mrizky@gmail.com",
+    "role": "employee",
+}
 
 
-###
-GET http://localhost:5000/smartphones
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJBaXN5YWgiLCJtYWlsIjoiYWlzQGdtYWlsLmNvbSIsImlhdCI6MTcxNjc4NzIzMSwiZXhwIjoxNzE2Nzg4MTMxfQ.i0sBtZr3DWcfE0Ie5GPp04yoBNQi4PuS_62yTt0u-Yk
-
-###
-GET http://localhost:5000/community
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsIm5hbWUiOiJBaXN5YWgiLCJtYWlsIjoiYWlzQGdtYWlsLmNvbSIsImlhdCI6MTcxNjc5MjYxNiwiZXhwIjoxNzE2NzkzNTE2fQ.koXF30LEufVijrCbsIXYmxRWmpCiRZk10JNuGRUZMw8
 ###
 POST http://localhost:5000/community/add
 Content-Type: application/json
@@ -31,8 +31,9 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Rizky",
-    "email": "rizky@gmail.com",
+    "name": "Rizky Keren",
+    "email": "rizkykeren@gmail.com",
+    "role": "employee",
     "password": "123456",
     "confirmPassword" : "123456"
 }
@@ -42,6 +43,6 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email": "ais@gmail.com",
+    "email": "rizky@gmail.com",
     "password": "123456"    
 }

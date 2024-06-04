@@ -16,6 +16,10 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     refreshToken: {
         type: DataTypes.STRING,
         allowNull: true

@@ -33,7 +33,7 @@ export const createUser = async (req, res) => {
     if (user.length > 0) {
       return res.status(400).json({ message: "User already exists" });
     }
-    
+
 
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = bcrypt.hashSync(password, salt);
@@ -143,14 +143,14 @@ export const editUser = async (req, res) => {
 
     if (password === undefined || password === null || password === "") {
       await Users.update(
-        { name, email, role },
+        { name: name, email: email, role: role },
         {
           where: {
             id: req.params.id,
           },
         }
       );
-      return res.json({ msg: "User updated successfully" });
+      return res.json({ msg: "User updated sukses" });
     } else {
       const salt = bcrypt.genSaltSync(10);
       const hashPassword = bcrypt.hashSync(password, salt);
