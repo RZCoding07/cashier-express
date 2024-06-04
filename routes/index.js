@@ -6,6 +6,7 @@ import {
   createUser,
   loginUser,
   resetPassword,
+  deleteUser,
   logout
 } from "../controllers/Users.js";
 import { loginFilter } from "../filters/LoginFilter.js";
@@ -15,6 +16,7 @@ const router = express.Router();
 
 router.get("/users", loginFilter, getUsers);
 router.get("/users/:id", loginFilter, getUsersById);
+router.delete("/users/:id", loginFilter, deleteUser);
 router.post("/users", createUser);
 router.post("/login", loginUser);
 router.post("/resetPassword/:id", loginFilter, resetPassword);

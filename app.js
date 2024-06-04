@@ -4,20 +4,20 @@ import router from './routes/index.js';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import cors from 'cors'
+import cors from 'cors';
 
 dotenv.config();
 const app = express();
 
-app.use(express.json());    
-app.use(router);
-app.use(morgan('dev'));
-app.use(helmet());
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(helmet());  // Security middleware
+app.use(cors());    // Cross-Origin Resource Sharing middleware
+app.use(morgan('dev'));  // HTTP request logger middleware
 
-app.use(cookieParser())
+app.use(express.json());  // Parse JSON bodies
+app.use(express.urlencoded({ extended: true }));  // Parse URL-encoded bodies
+app.use(cookieParser());  // Parse Cookie header and populate req.cookies
+
+app.use(router);  // Routes middleware
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');

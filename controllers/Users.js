@@ -119,3 +119,12 @@ export const logout = async (req, res) => {
     console.error(error);
   }
 };
+
+export const deleteUser = async (req, res) => {
+  try {
+    await Users.destroy({ where: { id: req.params.id } });
+    res.json({ msg: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+  }
+}
