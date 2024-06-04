@@ -10,6 +10,15 @@ import {
   deleteUser,
   logout
 } from "../controllers/Users.js";
+
+import {
+  getProducts,
+  getProductsById,
+  createProduct,
+  updateProduct,
+  deleteProduct
+} from "../controllers/Products.js";
+
 import { loginFilter } from "../filters/LoginFilter.js";
 
 
@@ -23,5 +32,12 @@ $routes.post("/users", createUser);
 $routes.post("/login", loginUser);
 $routes.post("/resetPassword/:id", loginFilter, resetPassword);
 $routes.delete("/logout/:id",loginFilter, logout);
+
+$routes.get("/products", loginFilter, getProducts);
+$routes.get("/products/:id", loginFilter, getProductsById);
+$routes.post("/products", loginFilter, createProduct);
+$routes.put("/products/:id", loginFilter, updateProduct);
+$routes.delete("/products/:id", loginFilter, deleteProduct);
+
 
 export default $routes;
